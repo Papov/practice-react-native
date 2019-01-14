@@ -9,7 +9,7 @@ import { ClearButton } from "../components/Buttons";
 import { LastConvertion } from "../components/Texts";
 import { Header } from "../components/Header";
 
-@inject("homeScreenStore")
+@inject("screenStore")
 @observer
 class Home extends React.Component {
   static propTypes = {
@@ -19,7 +19,7 @@ class Home extends React.Component {
     temp_quote_price: PropTypes.string,
     handlePressCurrency: PropTypes.func,
     handlePressPrice: PropTypes.func,
-    homeScreenStore: PropTypes.object,
+    screenStore: PropTypes.object,
     swapCurrencies: PropTypes.func,
     temp_convertion_date: PropTypes.object,
     temp_convertion_rate: PropTypes.number,
@@ -28,7 +28,7 @@ class Home extends React.Component {
 
   render() {
     const {
-      homeScreenStore: {
+      screenStore: {
         temp_base_currency,
         temp_quote_currency,
         handlePressCurrency,
@@ -44,18 +44,18 @@ class Home extends React.Component {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
-        <Header onPress={handleOptionPress} />
+        <Header onPress={handleOptionPress(this)} />
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
             buttonText={temp_base_currency}
-            onPress={handlePressCurrency}
+            onPress={handlePressCurrency(this)}
             defaultValue={temp_base_price}
             keyboardType="numeric"
           />
           <InputWithButton
             buttonText={temp_quote_currency}
-            onPress={handlePressPrice}
+            onPress={handlePressPrice(this)}
             defaultValue={temp_quote_price}
             keyboardType="numeric"
             editable={false}

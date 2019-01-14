@@ -1,6 +1,6 @@
 import { observable } from "mobx";
 
-class HomeScreenStore {
+class ScreenStore {
   @observable
   temp_base_currency = "USD";
 
@@ -19,21 +19,25 @@ class HomeScreenStore {
   @observable
   temp_convertion_rate = 0.7113;
 
-  handlePressCurrency = () => {
-    alert("currency");
+  changeBaseCurrency = _this => () => {
+    _this.props.navigation.goBack(null);
   };
 
-  handlePressPrice = () => {
-    alert("price");
+  handlePressCurrency = _this => () => {
+    _this.props.navigation.navigate("CurrencyList", { title: "Base currency" });
+  };
+
+  handlePressPrice = _this => () => {
+    _this.props.navigation.navigate("CurrencyList", { title: "Quote currency" });
   };
 
   swapCurrencies = () => {
     alert("swap currencies");
   };
 
-  handleOptionPress = () => {
-    alert("option");
+  handleOptionPress = _this => () => {
+    _this.props.navigation.navigate("Options", { title: "Options" });
   };
 }
 
-export const homeScreenStore = new HomeScreenStore();
+export const screenStore = new ScreenStore();

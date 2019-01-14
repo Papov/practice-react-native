@@ -8,12 +8,15 @@
   },
   "dependencies": {
     "expo": "^32.0.0",
+    "hoist-non-react-statics": "^3.2.1",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
     "prop-types": "^15.6.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-native-extended-stylesheet": "^0.11.1"
+    "react-native-dropdownalert": "^3.9.1",
+    "react-native-extended-stylesheet": "^0.11.1",
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
     "@expo/vector-icons": "expo/vector-icons",
